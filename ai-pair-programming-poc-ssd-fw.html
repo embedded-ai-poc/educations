@@ -9,18 +9,18 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --bg-primary: #212121;
-            --bg-secondary: #2f2f2f;
-            --bg-tertiary: #3a3a3a;
-            --text-primary: #ececec;
-            --text-secondary: #b4b4b4;
-            --text-muted: #8e8e8e;
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #252525;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #c0c0c0;
+            --text-muted: #888888;
             --accent: #10a37f;
             --accent-light: #1ed4a0;
-            --border: #444444;
-            --red: #ef4444;
-            --yellow: #f59e0b;
-            --blue: #3b82f6;
+            --border: #3d3d3d;
+            --red: #ff6b6b;
+            --yellow: #ffd43b;
+            --blue: #4dabf7;
         }
 
         body {
@@ -29,7 +29,7 @@
             color: var(--text-primary);
             overflow: hidden;
             height: 100vh;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .slide {
@@ -39,129 +39,131 @@
             display: none;
             flex-direction: column;
             justify-content: center;
-            padding: 80px 140px;
+            align-items: center;
+            text-align: center;
+            padding: 60px 100px;
             background: var(--bg-primary);
         }
 
         .slide.active { display: flex; }
 
-        h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.25; margin-bottom: 28px; letter-spacing: -0.02em; }
-        h2 { font-size: 2.5rem; font-weight: 600; line-height: 1.3; margin-bottom: 40px; letter-spacing: -0.01em; }
-        h3 { font-size: 1rem; font-weight: 500; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
-        p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.8; }
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 { font-size: 3.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 24px; }
+        h2 { font-size: 2.4rem; font-weight: 600; line-height: 1.35; margin-bottom: 36px; }
+        h3 { font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.12em; }
+        p { font-size: 1.2rem; color: var(--text-secondary); line-height: 1.8; }
         
-        .large-text { font-size: 1.35rem; line-height: 1.7; }
+        .large-text { font-size: 1.4rem; line-height: 1.8; }
         .accent { color: var(--accent); }
         .muted { color: var(--text-muted); }
         .red { color: var(--red); }
         .yellow { color: var(--yellow); }
         .blue { color: var(--blue); }
 
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; }
+        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: left; }
+        .four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
 
         .card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 4px;
             padding: 28px;
         }
-        .card-header { font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; color: var(--text-primary); }
-        .card-body { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; }
-        .card-accent { border-color: var(--accent); background: rgba(16, 163, 127, 0.08); }
-        .card-dim { background: var(--bg-tertiary); border-color: transparent; opacity: 0.8; }
+        .card-header { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+        .card-body { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.9; }
+        .card-accent { border-color: var(--accent); background: rgba(16, 163, 127, 0.1); }
+        .card-dim { background: var(--bg-tertiary); border-color: transparent; }
 
         .code-block {
-            background: #1a1a1a;
+            background: #0d0d0d;
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 4px;
             padding: 24px 28px;
             font-family: 'SF Mono', 'Consolas', monospace;
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: left;
         }
         .code-comment { color: var(--text-muted); }
         .code-keyword { color: var(--accent-light); }
 
-        .table { width: 100%; border-collapse: collapse; }
-        .table th, .table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--border); font-size: 1rem; }
+        .table-wrap { width: 100%; overflow-x: auto; }
+        .table { width: 100%; border-collapse: collapse; text-align: left; }
+        .table th, .table td { padding: 18px 24px; border-bottom: 1px solid var(--border); font-size: 1.05rem; }
         .table th { font-weight: 600; color: var(--text-primary); background: var(--bg-secondary); }
         .table td { color: var(--text-secondary); }
 
-        .stat { text-align: center; padding: 24px 16px; }
-        .stat-value { font-size: 2.8rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 10px; }
-        .stat-label { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        .stat { padding: 24px 16px; }
+        .stat-value { font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 12px; }
+        .stat-label { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
 
-        .quote {
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--text-primary);
-            border-left: 3px solid var(--accent);
-            padding-left: 28px;
-            margin: 28px 0;
-        }
-        .quote-source { font-size: 0.9rem; color: var(--text-muted); margin-top: 14px; }
-
-        .list { list-style: none; }
-        .list li { font-size: 1.05rem; color: var(--text-secondary); padding: 8px 0; padding-left: 24px; position: relative; }
-        .list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
-
-        .prompt-box {
+        .box {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 4px;
+            padding: 24px 32px;
+            margin: 24px 0;
+        }
+        .box-accent {
+            border-color: var(--accent);
+            background: rgba(16, 163, 127, 0.08);
+        }
+
+        .list { list-style: none; text-align: left; }
+        .list li { font-size: 1.1rem; color: var(--text-secondary); padding: 10px 0; padding-left: 28px; position: relative; }
+        .list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+
+        .prompt-box {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
             padding: 24px 28px;
             margin: 16px 0;
+            text-align: left;
         }
-        .prompt-label { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-        .prompt-text { font-size: 1rem; color: var(--text-primary); line-height: 1.8; }
+        .prompt-label { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+        .prompt-text { font-size: 1.05rem; color: var(--text-primary); line-height: 1.9; }
 
         .practice-section {
-            background: linear-gradient(135deg, rgba(16, 163, 127, 0.12) 0%, rgba(16, 163, 127, 0.04) 100%);
-            border: 1px solid var(--accent);
-            border-radius: 16px;
-            padding: 44px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            padding: 48px;
+            width: 100%;
         }
-        .practice-section h3 { color: var(--accent); }
 
         .think-section {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 100%);
-            border: 1px solid var(--blue);
-            border-radius: 16px;
-            padding: 44px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--blue);
+            border-radius: 4px;
+            padding: 48px;
+            width: 100%;
         }
         .think-section h3 { color: var(--blue); }
 
         .tag {
             display: inline-block;
             background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 24px;
         }
-        .tag-accent { background: rgba(16, 163, 127, 0.2); color: var(--accent); }
-        .tag-blue { background: rgba(59, 130, 246, 0.2); color: var(--blue); }
 
-        .flow { display: flex; align-items: center; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
-        .flow-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 14px 20px; font-size: 0.95rem; font-weight: 500; }
-        .flow-item.active { background: var(--accent); border-color: var(--accent); color: white; }
-        .flow-arrow { color: var(--text-muted); font-size: 1.1rem; }
+        .flow { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 28px 0; flex-wrap: wrap; }
+        .flow-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 14px 24px; font-size: 1rem; font-weight: 500; }
+        .flow-item.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+        .flow-arrow { color: var(--text-muted); font-size: 1.2rem; }
 
-        .divider { height: 1px; background: var(--border); margin: 28px 0; }
-
-        .highlight-box {
-            background: rgba(16, 163, 127, 0.1);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin: 20px 0;
-        }
+        .divider { height: 1px; background: var(--border); margin: 32px 0; width: 100%; }
 
         .nav {
             position: fixed;
@@ -169,34 +171,35 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 8px;
             z-index: 100;
         }
         .nav-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
             background: var(--bg-tertiary);
             cursor: pointer;
             transition: all 0.2s;
         }
-        .nav-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+        .nav-dot.active { background: var(--accent); width: 32px; }
         .nav-dot:hover:not(.active) { background: var(--text-muted); }
 
         .slide-counter {
             position: fixed;
-            top: 40px;
-            right: 60px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            top: 32px;
+            right: 48px;
+            font-size: 0.95rem;
+            font-weight: 600;
             color: var(--text-muted);
+            font-family: 'Inter', monospace;
         }
 
         .progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 2px;
+            height: 3px;
             background: var(--accent);
             transition: width 0.3s;
         }
@@ -207,8 +210,6 @@
         .mt-48 { margin-top: 48px; }
         .mb-16 { margin-bottom: 16px; }
         .mb-24 { margin-bottom: 24px; }
-        .center { text-align: center; }
-        .small { font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -217,27 +218,30 @@
 
     <!-- Slide 1: Title -->
     <div class="slide active" id="slide1">
-        <div class="tag">SAMSUNG SSD FW DIVISION</div>
-        <h1>AI 페어프로그래밍 PoC</h1>
-        <p class="large-text" style="max-width: 800px;">
-            프론티어 AI 서비스의 <span class="accent">효용성 검증</span>을 위한<br>
-            SSD 펌웨어 개발자 대상 2일 과정
-        </p>
-        <div class="highlight-box mt-48" style="max-width: 700px;">
-            <p style="font-size: 1rem; margin: 0;">
-                <span class="accent">PoC 목적:</span> 외부망 프론티어 AI 서비스를 직접 경험하고,<br>
-                SSD FW 개발 업무에서의 실질적 효용성을 검증하여<br>
-                향후 보안 이슈 해소 및 확장 도입의 근거를 마련
+        <div class="slide-content">
+            <div class="tag">SAMSUNG SSD FW DIVISION</div>
+            <h1>AI 페어프로그래밍 PoC</h1>
+            <p class="large-text">
+                프론티어 AI 서비스의 <span class="accent">효용성 검증</span>을 위한<br>
+                SSD 펌웨어 개발자 대상 교육
             </p>
+            <div class="box box-accent mt-48" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+                <p style="font-size: 1.05rem; margin: 0; text-align: left;">
+                    <span class="accent">PoC 목적</span><br>
+                    외부망 프론티어 AI 서비스를 직접 경험하고,<br>
+                    SSD FW 개발 업무에서의 실질적 효용성을 검증하여<br>
+                    향후 보안 이슈 해소 및 확장 도입의 근거 마련
+                </p>
+            </div>
         </div>
     </div>
 
     <!-- Slide 2: PoC Context -->
     <div class="slide" id="slide2">
-        <h3>교육 배경</h3>
-        <h2>왜 이 자리에 모였는가</h2>
-        <div class="two-col">
-            <div>
+        <div class="slide-content">
+            <h3>교육 배경</h3>
+            <h2>왜 이 자리에 모였는가</h2>
+            <div class="two-col">
                 <div class="card card-dim">
                     <div class="card-header">현재 상황</div>
                     <div class="card-body">
@@ -247,108 +251,111 @@
                         보안 정책으로 외부 서비스 접근 제한
                     </div>
                 </div>
-            </div>
-            <div>
                 <div class="card card-accent">
                     <div class="card-header">이번 PoC</div>
                     <div class="card-body">
-                        10명 선발, 외부망에서 프론티어 서비스 체험<br>
+                        선발 인원이 외부망에서 프론티어 서비스 체험<br>
                         Claude, GPT-4o, Cursor, Claude Code 등<br>
                         SSD FW 업무에서 효용성 직접 검증<br>
                         결과 기반으로 확장 도입 방향 수립
                     </div>
                 </div>
             </div>
+            <div class="flow mt-32">
+                <div class="flow-item active">PoC 체험</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">효용성 검증</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">보안 이슈 해소</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">확장 도입</div>
+            </div>
+            <p class="mt-24 muted">
+                여러분이 직접 경험하고 발견한 가치가 조직의 다음 단계를 결정합니다.
+            </p>
         </div>
-        <div class="flow mt-32">
-            <div class="flow-item active">PoC 체험</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-item">효용성 검증</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-item">보안 이슈 해소</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-item">확장 도입</div>
-        </div>
-        <p class="mt-24 muted">
-            여러분이 직접 경험하고 발견한 가치가 조직의 다음 단계를 결정합니다.
-        </p>
     </div>
 
     <!-- Slide 3: What's Different -->
     <div class="slide" id="slide3">
-        <h3>핵심 차이</h3>
-        <h2>내부망 LLM vs 프론티어 서비스</h2>
-        <table class="table">
-            <tr>
-                <th style="width:25%">구분</th>
-                <th style="width:37%">내부망 오픈소스 LLM</th>
-                <th style="width:38%">프론티어 AI 서비스</th>
-            </tr>
-            <tr>
-                <td>동작 방식</td>
-                <td>질문 → 답변 (1회성)</td>
-                <td class="accent">목표 → 계획 → 실행 → 검증 → 반복</td>
-            </tr>
-            <tr>
-                <td>컨텍스트</td>
-                <td>4K~8K 토큰</td>
-                <td class="accent">128K~200K 토큰 (NVMe 스펙 전체 참조 가능)</td>
-            </tr>
-            <tr>
-                <td>도구 사용</td>
-                <td>텍스트 출력만</td>
-                <td class="accent">파일 읽기/쓰기, 웹 검색, 코드 실행</td>
-            </tr>
-            <tr>
-                <td>비유</td>
-                <td>검색엔진에 질문</td>
-                <td class="accent">주니어 개발자에게 업무 위임</td>
-            </tr>
-            <tr>
-                <td>활용 범위</td>
-                <td>단발성 질의 응답</td>
-                <td class="accent">지속적 협업 및 작업 위임</td>
-            </tr>
-        </table>
-        
+        <div class="slide-content">
+            <h3>핵심 차이</h3>
+            <h2>내부망 LLM vs 프론티어 서비스</h2>
+            <div class="table-wrap">
+                <table class="table">
+                    <tr>
+                        <th style="width:22%">구분</th>
+                        <th style="width:39%">내부망 오픈소스 LLM</th>
+                        <th style="width:39%">프론티어 AI 서비스</th>
+                    </tr>
+                    <tr>
+                        <td>동작 방식</td>
+                        <td>질문 → 답변 (1회성)</td>
+                        <td class="accent">목표 → 계획 → 실행 → 검증 → 반복</td>
+                    </tr>
+                    <tr>
+                        <td>컨텍스트</td>
+                        <td>4K~8K 토큰</td>
+                        <td class="accent">128K~200K 토큰</td>
+                    </tr>
+                    <tr>
+                        <td>도구 사용</td>
+                        <td>텍스트 출력만</td>
+                        <td class="accent">파일 읽기/쓰기, 웹 검색, 코드 실행</td>
+                    </tr>
+                    <tr>
+                        <td>비유</td>
+                        <td>검색엔진에 질문</td>
+                        <td class="accent">주니어 개발자에게 업무 위임</td>
+                    </tr>
+                    <tr>
+                        <td>활용 범위</td>
+                        <td>단발성 질의 응답</td>
+                        <td class="accent">지속적 협업 및 작업 위임</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 
     <!-- Slide 4: Mindset 1 -->
     <div class="slide" id="slide4">
-        <h3>마인드셋 전환 1</h3>
-        <h2>"코드 생성기"가 아니라 <span class="accent">"사고 파트너"</span></h2>
-        <div class="two-col">
-            <div>
-                <h3 class="mb-16">흔한 오해</h3>
-                <ul class="list">
-                    <li>AI는 코드 자동완성 도구다</li>
-                    <li>완벽한 프롬프트를 찾아야 한다</li>
-                    <li>한 번에 전체를 요청해야 한다</li>
-                    <li>AI가 틀리면 내가 직접 고친다</li>
-                </ul>
+        <div class="slide-content">
+            <h3>마인드셋 전환 1</h3>
+            <h2>"코드 생성기"가 아니라 <span class="accent">"사고 파트너"</span></h2>
+            <div class="two-col">
+                <div>
+                    <div class="card-header" style="text-align:left; margin-bottom:20px;">흔한 오해</div>
+                    <ul class="list">
+                        <li>AI는 코드 자동완성 도구다</li>
+                        <li>완벽한 프롬프트를 찾아야 한다</li>
+                        <li>한 번에 전체를 요청해야 한다</li>
+                        <li>AI가 틀리면 내가 직접 고친다</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card-header" style="text-align:left; margin-bottom:20px;">효과적인 접근</div>
+                    <ul class="list">
+                        <li>AI는 대화하며 함께 문제를 푸는 파트너</li>
+                        <li>대화를 통해 점진적으로 발전시킨다</li>
+                        <li>작은 단위로 나누어 반복한다</li>
+                        <li>에러 발견 시 AI에게 재작성을 지시한다</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h3 class="mb-16">효과적인 접근</h3>
-                <ul class="list">
-                    <li>AI는 대화하며 함께 문제를 푸는 파트너</li>
-                    <li>대화를 통해 점진적으로 발전시킨다</li>
-                    <li>작은 단위로 나누어 반복한다</li>
-                    <li>에러 발견 시 AI에게 재작성을 지시한다</li>
-                </ul>
-            </div>
+            <p class="mt-48 muted">
+                전동 공구가 등장해도 목수의 전문성이 사라지지 않듯,<br>
+                AI 도구의 등장이 개발자의 가치를 대체하지 않습니다.
+            </p>
         </div>
-        <p class="mt-32 muted">
-            전동 공구가 등장해도 목수의 전문성이 사라지지 않듯,<br>
-            AI 도구의 등장이 개발자의 가치를 대체하지 않습니다.
-        </p>
     </div>
 
     <!-- Slide 5: Mindset 2 -->
     <div class="slide" id="slide5">
-        <h3>마인드셋 전환 2</h3>
-        <h2>개발자의 역할: <span class="accent">작성자 → 선택자/검증자</span></h2>
-        <div class="two-col">
-            <div>
+        <div class="slide-content">
+            <h3>마인드셋 전환 2</h3>
+            <h2>개발자의 역할: <span class="accent">작성자 → 의사결정자</span></h2>
+            <div class="two-col">
                 <div class="card">
                     <div class="card-header">코딩은 개발자 업무의 일부분</div>
                     <div class="card-body">
@@ -357,16 +364,13 @@
                         실제 구현 (코딩)<br>
                         QA & 디버깅<br>
                         모니터링, 운영, 장애대응<br>
-                        코드 리뷰, 면접<br><br>
+                        코드 리뷰<br><br>
                         <span class="accent">→ 모든 영역에서 AI 활용 가능</span>
                     </div>
                 </div>
-            </div>
-            <div>
                 <div class="card card-accent">
-                    <div class="card-header">2025년의 역할 전환</div>
+                    <div class="card-header">역할의 변화</div>
                     <div class="card-body">
-                        <span class="red">"이건 잘못됐다" (X)</span><br><br>
                         <span class="accent">"이것과 저것 중 어느 게 낫나"</span><br>
                         Trade-off 판단<br><br>
                         <span class="accent">"여기 논리 오류 있어"</span><br>
@@ -381,97 +385,100 @@
 
     <!-- Slide 6: Mindset 3 -->
     <div class="slide" id="slide6">
-        <h3>마인드셋 전환 3</h3>
-        <h2>"효율"보다 <span class="accent">"몰입할 여유"</span></h2>
-        <div class="quote">
-            AI의 진짜 가치는 "더 빨리"가 아니라<br>
-            지루한 반복 작업에서 벗어나 본질적인 문제에 집중하는 것
+        <div class="slide-content">
+            <h3>마인드셋 전환 3</h3>
+            <h2>"효율"보다 <span class="accent">"몰입할 여유"</span></h2>
+            <p class="mb-32">
+                AI의 진짜 가치는 "더 빨리"가 아니라<br>
+                소모적인 반복 작업에서 벗어나 본질적인 문제에 집중하는 것
+            </p>
+            <div class="three-col">
+                <div class="card">
+                    <div class="card-header">보일러플레이트 해방</div>
+                    <div class="card-body">
+                        NVMe 커맨드 파서, SMART 구조체 정의 같은<br>
+                        반복적인 코드를 AI가 초안 작성
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">스펙 분석 가속</div>
+                    <div class="card-body">
+                        NVMe 스펙 200페이지를 혼자 파악하는 대신<br>
+                        AI와 함께 분석하고 요약
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">디버깅 보조</div>
+                    <div class="card-body">
+                        로그 분석, RCA 브레인스토밍,<br>
+                        잠재적 원인 리스트업을 AI가 지원
+                    </div>
+                </div>
+            </div>
+            <p class="mt-32">
+                <span class="accent">핵심 질문:</span> 내 업무 중 소모적인 반복 작업은 무엇인가?
+            </p>
         </div>
-        <div class="three-col mt-32">
-            <div class="card">
-                <div class="card-header">보일러플레이트 해방</div>
-                <div class="card-body">
-                    NVMe 커맨드 파서, SMART 구조체 정의 같은<br>
-                    반복적인 코드를 AI가 초안 작성
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">스펙 분석 가속</div>
-                <div class="card-body">
-                    NVMe 스펙 200페이지를 혼자 파악하는 대신<br>
-                    AI와 함께 분석하고 요약
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">디버깅 보조</div>
-                <div class="card-body">
-                    로그 분석, RCA 브레인스토밍,<br>
-                    잠재적 원인 리스트업을 AI가 지원
-                </div>
-            </div>
-        </div>
-        <p class="mt-32">
-            <span class="accent">핵심 질문:</span> 내 업무 중 소모적인 반복 작업은 무엇인가?
-        </p>
     </div>
 
     <!-- Slide 7: Think 1 -->
     <div class="slide" id="slide7">
-        <div class="think-section">
-            <h3>THINK</h3>
-            <h2 style="margin-bottom: 28px;">나의 업무 돌아보기</h2>
-            <div class="three-col" style="gap: 24px;">
-                <div class="card" style="background: var(--bg-primary);">
-                    <div class="card-header">1. 반복 작업</div>
-                    <div class="card-body">
-                        매주/매일 비슷한 패턴으로 하는 작업?<br>
-                        테스트 코드 작성, 로그 포맷팅,<br>
-                        코드 리뷰 체크리스트...
+        <div class="slide-content">
+            <div class="think-section">
+                <h3>THINK</h3>
+                <h2 style="margin-bottom: 32px;">나의 업무 돌아보기</h2>
+                <div class="three-col" style="gap: 24px;">
+                    <div class="card" style="background: var(--bg-tertiary);">
+                        <div class="card-header">1. 반복 작업</div>
+                        <div class="card-body">
+                            매주/매일 비슷한 패턴으로 하는 작업?<br>
+                            테스트 코드 작성, 로그 포맷팅,<br>
+                            코드 리뷰 체크리스트...
+                        </div>
+                    </div>
+                    <div class="card" style="background: var(--bg-tertiary);">
+                        <div class="card-header">2. 시간 소모</div>
+                        <div class="card-body">
+                            가장 오래 걸리는 작업?<br>
+                            스펙 파악, 디버깅, RCA,<br>
+                            보일러플레이트 작성...
+                        </div>
+                    </div>
+                    <div class="card" style="background: var(--bg-tertiary);">
+                        <div class="card-header">3. 피하고 싶은 것</div>
+                        <div class="card-body">
+                            하기 싫어서 미루는 작업?<br>
+                            문서화, 주석 작성,<br>
+                            레거시 코드 분석...
+                        </div>
                     </div>
                 </div>
-                <div class="card" style="background: var(--bg-primary);">
-                    <div class="card-header">2. 시간 소모</div>
-                    <div class="card-body">
-                        가장 오래 걸리는 작업?<br>
-                        스펙 파악, 디버깅, RCA,<br>
-                        보일러플레이트 작성...
-                    </div>
-                </div>
-                <div class="card" style="background: var(--bg-primary);">
-                    <div class="card-header">3. 피하고 싶은 것</div>
-                    <div class="card-body">
-                        하기 싫어서 미루는 작업?<br>
-                        문서화, 주석 작성,<br>
-                        레거시 코드 분석...
-                    </div>
-                </div>
+                <p class="mt-32" style="font-size: 1.1rem;">
+                    5분간 각자 적어보세요. 이것이 AI 활용의 시작점입니다.
+                </p>
             </div>
-            <p class="mt-32" style="font-size: 1.1rem;">
-                5분간 각자 적어보세요. 이것이 AI 활용의 시작점입니다.
-            </p>
         </div>
     </div>
 
     <!-- Slide 8: AI-First Development -->
     <div class="slide" id="slide8">
-        <h3>새로운 개발 방식</h3>
-        <h2>AI 중심 개발 워크플로우</h2>
-        <div class="two-col">
-            <div>
-                <h3 class="mb-16">핵심 원칙</h3>
-                <div class="flow" style="flex-direction: column; align-items: flex-start; gap: 8px;">
-                    <div class="flow-item" style="width: 100%;">1. 의도와 맥락을 AI에게 전달</div>
-                    <div class="flow-item" style="width: 100%;">2. AI가 초안 작성</div>
-                    <div class="flow-item" style="width: 100%;">3. 구조와 논리를 검토</div>
-                    <div class="flow-item" style="width: 100%;">4. 이상 발견 시 직접 수정보다 AI에게 재작성 지시</div>
-                    <div class="flow-item active" style="width: 100%;">5. 새 원칙 발견 시 가이드 문서에 추가</div>
+        <div class="slide-content">
+            <h3>새로운 개발 방식</h3>
+            <h2>AI 중심 개발 워크플로우</h2>
+            <div class="two-col">
+                <div>
+                    <div class="card-header" style="text-align:left; margin-bottom:20px;">핵심 원칙</div>
+                    <ul class="list">
+                        <li>의도와 맥락을 AI에게 전달</li>
+                        <li>AI가 초안 작성</li>
+                        <li>구조와 논리를 검토</li>
+                        <li>이상 발견 시 직접 수정보다 AI에게 재작성 지시</li>
+                        <li>새 원칙 발견 시 가이드 문서에 추가</li>
+                    </ul>
                 </div>
-            </div>
-            <div>
-                <h3 class="mb-16">점진적 가이드 축적</h3>
                 <div class="card">
+                    <div class="card-header">점진적 가이드 축적</div>
                     <div class="card-body">
-                        테스트 주도 개발의 AI 버전:<br><br>
                         예상과 다른 동작 관찰<br>
                         → 가이드 문서에 규칙 추가<br>
                         → 코드와 가이드가 함께 성장<br><br>
@@ -486,110 +493,116 @@
 
     <!-- Slide 9: Context Engineering -->
     <div class="slide" id="slide9">
-        <h3>핵심 역량</h3>
-        <h2>Context Engineering</h2>
-        <p class="mb-24">"프롬프트 엔지니어링"을 넘어 "맥락 설계"의 시대</p>
-        <div class="two-col">
-            <div>
-                <h3 class="mb-16">내부망 LLM에 질문하듯</h3>
-                <div class="code-block">
-<span class="code-comment">// 맥락 없이</span>
+        <div class="slide-content">
+            <h3>핵심 역량</h3>
+            <h2>Context Engineering</h2>
+            <p class="mb-32">"프롬프트 엔지니어링"을 넘어 "맥락 설계"의 시대</p>
+            <div class="two-col">
+                <div>
+                    <div class="card-header" style="text-align:left; margin-bottom:16px;">맥락 없이</div>
+                    <div class="code-block">
+<span class="code-comment">// 내부망 LLM에 질문하듯</span>
 "GC 코드 짜줘"
+                    </div>
+                    <p class="mt-16 muted" style="text-align:left; font-size:0.95rem;">
+                        어떤 NAND? 어떤 매핑? 어떤 제약?<br>
+                        AI가 추측해서 일반적인 코드 생성
+                    </p>
                 </div>
-                <p class="mt-16 muted small">
-                    어떤 NAND? 어떤 매핑? 어떤 제약?<br>
-                    AI가 추측해서 일반적인 코드 생성
-                </p>
-            </div>
-            <div>
-                <h3 class="mb-16">프론티어 에이전트에게</h3>
-                <div class="code-block">
-<span class="code-comment">// 맥락 제공</span>
+                <div>
+                    <div class="card-header" style="text-align:left; margin-bottom:16px;">맥락 제공</div>
+                    <div class="code-block">
+<span class="code-comment">// 프론티어 에이전트에게</span>
 <span class="code-keyword">"SSD FW Background GC 모듈 작성</span>
 
 환경: 3D TLC NAND, 페이지 매핑 FTL
 목표: WAF 최소화, 호스트 IO 영향 최소화
 제약: MISRA C, malloc 금지, ISR-safe
 참조: 첨부된 FTL 구조체 정의"
+                    </div>
                 </div>
             </div>
+            <p class="mt-32">
+                <span class="accent">AI에게 "왜"를 설명하면 "어떻게"가 정확해진다.</span>
+            </p>
         </div>
-        <p class="mt-24">
-            <span class="accent">AI에게 "왜"를 설명하면 "어떻게"가 정확해진다.</span>
-        </p>
     </div>
 
     <!-- Slide 10: Practice 1 -->
     <div class="slide" id="slide10">
-        <div class="practice-section">
-            <h3>PRACTICE 1</h3>
-            <h2 style="margin-bottom: 28px;">맥락의 차이 체험하기</h2>
-            <div class="two-col" style="gap: 40px;">
-                <div class="prompt-box" style="background: var(--bg-primary);">
-                    <div class="prompt-label">Step 1: 맥락 없이</div>
-                    <div class="prompt-text">
-                        "NVMe SMART 데이터 파싱 함수 작성해줘"
+        <div class="slide-content">
+            <div class="practice-section">
+                <h3>PRACTICE 1</h3>
+                <h2 style="margin-bottom: 32px;">맥락의 차이 체험하기</h2>
+                <div class="two-col" style="gap: 32px;">
+                    <div class="prompt-box">
+                        <div class="prompt-label">Step 1: 맥락 없이</div>
+                        <div class="prompt-text">
+                            "NVMe SMART 데이터 파싱 함수 작성해줘"
+                        </div>
+                    </div>
+                    <div class="prompt-box">
+                        <div class="prompt-label">Step 2: 맥락 제공</div>
+                        <div class="prompt-text">
+                            "삼성 SSD FW에서 NVMe SMART 로그 파싱 필요<br><br>
+                            - NVMe Spec 2.0, Log Page ID 02h 기준<br>
+                            - C99, 동적 할당 금지, 빅엔디안 처리<br>
+                            - Critical Warning, Temperature 추출<br>
+                            - 에러 시 음수 반환"
+                        </div>
                     </div>
                 </div>
-                <div class="prompt-box" style="background: var(--bg-primary);">
-                    <div class="prompt-label">Step 2: 맥락 제공</div>
-                    <div class="prompt-text">
-                        "삼성 SSD FW에서 NVMe SMART 로그 파싱 필요<br><br>
-                        - NVMe Spec 2.0, Log Page ID 02h 기준<br>
-                        - C99, 동적 할당 금지, 빅엔디안 처리<br>
-                        - Critical Warning, Temperature 추출<br>
-                        - 에러 시 음수 반환"
-                    </div>
+                <div class="mt-32" style="text-align:left;">
+                    <p><span class="accent">비교 포인트:</span> 구조체 정의, 에러 처리, 엔디안 변환, 코드 품질</p>
+                    <p class="mt-16"><span class="accent">추가 실험:</span> Step 2 결과에 "이 코드 리뷰해줘. race condition, 메모리 정렬 확인" 요청</p>
                 </div>
-            </div>
-            <div class="mt-24">
-                <p><span class="accent">비교 포인트:</span> 구조체 정의, 에러 처리, 엔디안 변환, 코드 품질</p>
-                <p class="mt-16"><span class="accent">추가 실험:</span> Step 2 결과에 "이 코드 리뷰해줘. race condition, 메모리 정렬 확인" 요청</p>
             </div>
         </div>
     </div>
 
     <!-- Slide 11: Verification -->
     <div class="slide" id="slide11">
-        <h3>필수 인식</h3>
-        <h2>AI 출력은 <span class="accent">검증이 필수</span>다</h2>
-        <div class="four-col">
-            <div class="stat">
-                <div class="stat-value" style="color: var(--red);">45%</div>
-                <div class="stat-label">AI 생성 코드<br>보안 테스트 실패</div>
+        <div class="slide-content">
+            <h3>필수 인식</h3>
+            <h2>AI 출력은 <span class="accent">검증이 필수</span>다</h2>
+            <div class="four-col">
+                <div class="stat">
+                    <div class="stat-value" style="color: var(--red);">45%</div>
+                    <div class="stat-label">AI 생성 코드<br>보안 테스트 실패</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: var(--red);">62%</div>
+                    <div class="stat-label">설계 결함<br>포함</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: var(--yellow);">36%</div>
+                    <div class="stat-label">요구사항<br>위반</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value yellow" style="font-size: 1.6rem;">주의</div>
+                    <div class="stat-label">AI가 테스트 코드를<br>삭제하려는 경향</div>
+                </div>
             </div>
-            <div class="stat">
-                <div class="stat-value" style="color: var(--red);">62%</div>
-                <div class="stat-label">설계 결함<br>포함</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" style="color: var(--yellow);">36%</div>
-                <div class="stat-label">요구사항<br>위반</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" style="color: var(--yellow); font-size: 1.8rem;">주의</div>
-                <div class="stat-label">AI가 테스트 코드를<br>삭제하려는 경향</div>
-            </div>
-        </div>
-        <div class="divider"></div>
-        <div class="two-col">
-            <div>
-                <h3 class="mb-16">검증 원칙</h3>
-                <ul class="list">
-                    <li>AI 출력도 코드 리뷰 대상으로 취급</li>
-                    <li>빌드 및 정적 분석 통과 확인</li>
-                    <li>다른 AI로 교차 검증 요청</li>
-                    <li>다른 사람에게 설명 못하면 커밋 X</li>
-                </ul>
-            </div>
-            <div>
-                <div class="code-block">
+            <div class="divider"></div>
+            <div class="two-col">
+                <div>
+                    <div class="card-header" style="text-align:left; margin-bottom:16px;">검증 원칙</div>
+                    <ul class="list">
+                        <li>AI 출력도 코드 리뷰 대상으로 취급</li>
+                        <li>빌드 및 정적 분석 통과 확인</li>
+                        <li>다른 AI로 교차 검증 요청</li>
+                        <li>다른 사람에게 설명 못하면 커밋 X</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="code-block">
 <span class="code-comment">// 교차 검증 프롬프트</span>
 "이 FW 코드 리뷰해줘. 특히:
 <span class="code-keyword">- 인터럽트 컨텍스트 안전성</span>
 <span class="code-keyword">- 메모리 정렬 이슈</span>
 <span class="code-keyword">- 엔디안 처리 누락</span>
 <span class="code-keyword">- 타임아웃 미처리</span>"
+                    </div>
                 </div>
             </div>
         </div>
@@ -597,53 +610,55 @@
 
     <!-- Slide 12: FW Specific -->
     <div class="slide" id="slide12">
-        <h3>SSD FW 관점</h3>
-        <h2>AI가 모르는 것 vs 효과적인 영역</h2>
-        <div class="two-col">
-            <div>
-                <div class="card" style="border-color: var(--red);">
-                    <div class="card-header red">AI가 이해하기 어려운 영역</div>
-                    <div class="card-body">
-                        NAND Flash 물리적 특성<br>
-                        (P/E cycle, retention, read disturb)<br><br>
-                        컨트롤러 레지스터 타이밍<br>
-                        전력 손실 복구 시퀀스<br>
-                        웨어 레벨링 임계값 튜닝<br>
-                        실측 데이터 기반 최적화
+        <div class="slide-content">
+            <h3>SSD FW 관점</h3>
+            <h2>AI가 모르는 것 vs 효과적인 영역</h2>
+            <div class="two-col">
+                <div>
+                    <div class="card" style="border-color: var(--red);">
+                        <div class="card-header red">AI가 이해하기 어려운 영역</div>
+                        <div class="card-body">
+                            NAND Flash 물리적 특성<br>
+                            (P/E cycle, retention, read disturb)<br><br>
+                            컨트롤러 레지스터 타이밍<br>
+                            전력 손실 복구 시퀀스<br>
+                            웨어 레벨링 임계값 튜닝<br>
+                            실측 데이터 기반 최적화
+                        </div>
                     </div>
+                    <p class="mt-16 muted" style="font-size:0.95rem; text-align:left;">
+                        실제 반도체 기업 실험에서도 유사한 결과 확인
+                    </p>
                 </div>
-                <p class="mt-16 muted small">
-                    실제 반도체 기업 실험에서도 유사한 결과 확인
-                </p>
-            </div>
-            <div>
-                <div class="card card-accent">
-                    <div class="card-header">효과적인 활용 영역</div>
-                    <div class="card-body">
-                        NVMe 커맨드 파서 보일러플레이트<br>
-                        SMART 데이터 구조체 정의<br>
-                        유닛 테스트 케이스 생성<br>
-                        디버그 로그 분석 자동화<br>
-                        NVMe 스펙 문서 요약/비교<br>
-                        코드 리뷰 체크리스트 적용
+                <div>
+                    <div class="card card-accent">
+                        <div class="card-header">효과적인 활용 영역</div>
+                        <div class="card-body">
+                            NVMe 커맨드 파서 보일러플레이트<br>
+                            SMART 데이터 구조체 정의<br>
+                            유닛 테스트 케이스 생성<br>
+                            디버그 로그 분석 자동화<br>
+                            NVMe 스펙 문서 요약/비교<br>
+                            코드 리뷰 체크리스트 적용
+                        </div>
                     </div>
+                    <p class="mt-16 accent" style="font-size:0.95rem; text-align:left;">
+                        인간-AI 협업으로 임베디드 개발<br>
+                        성공률이 크게 향상된 사례 다수
+                    </p>
                 </div>
-                <p class="mt-16 accent small">
-                    인간-AI 협업으로 임베디드 개발<br>
-                    성공률이 크게 향상된 사례 다수
-                </p>
             </div>
         </div>
     </div>
 
     <!-- Slide 13: Practice 2 -->
     <div class="slide" id="slide13">
-        <div class="practice-section">
-            <h3>PRACTICE 2</h3>
-            <h2 style="margin-bottom: 28px;">AI 워크플로우 구축하기</h2>
-            <div class="two-col" style="gap: 40px;">
-                <div>
-                    <div class="prompt-box" style="background: var(--bg-primary);">
+        <div class="slide-content">
+            <div class="practice-section">
+                <h3>PRACTICE 2</h3>
+                <h2 style="margin-bottom: 32px;">AI 워크플로우 구축하기</h2>
+                <div class="two-col" style="gap: 32px;">
+                    <div class="prompt-box">
                         <div class="prompt-label">MCP 서버 구축</div>
                         <div class="prompt-text">
                             "Claude Desktop에서 MCP 서버 설정하고 싶어<br><br>
@@ -653,9 +668,7 @@
                             단계별로 설명해줘"
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="prompt-box" style="background: var(--bg-primary);">
+                    <div class="prompt-box">
                         <div class="prompt-label">CLAUDE.md 작성</div>
                         <div class="prompt-text">
                             "SSD FW 프로젝트용 AI 가이드 문서 작성해줘<br><br>
@@ -666,97 +679,107 @@
                         </div>
                     </div>
                 </div>
+                <p class="mt-32">
+                    구축한 환경에서 실습 1을 다시 수행하고 결과 차이 확인
+                </p>
             </div>
-            <p class="mt-24">
-                구축한 환경에서 실습 1을 다시 수행하고 결과 차이 확인
-            </p>
         </div>
     </div>
 
     <!-- Slide 14: Practice 3 -->
     <div class="slide" id="slide14">
-        <div class="practice-section" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.04) 100%); border-color: #a855f7;">
-            <h3 style="color: #a855f7;">PRACTICE 3</h3>
-            <h2 style="margin-bottom: 28px;">디버그 로그 분석 자동화</h2>
-            <div class="prompt-box" style="background: var(--bg-primary);">
-                <div class="prompt-label">실제 업무 시나리오</div>
-                <div class="prompt-text">
-                    "SSD FW 디버그 로그 분석을 도와줘<br><br>
-                    [로그 패턴]<br>
-                    - GC 관련: "[GC] blk=XXX, valid=YYY, erase_cnt=ZZZ"<br>
-                    - 에러: "[ERR] cmd=XXX, lba=YYY, status=ZZZ"<br><br>
-                    [분석 요청]<br>
-                    1. GC 빈도가 급증하는 시점 찾기<br>
-                    2. 특정 LBA 범위에서 에러 패턴 분석<br>
-                    3. 잠재적 원인 리스트업<br><br>
-                    Python 스크립트로 작성해줘"
+        <div class="slide-content">
+            <div class="practice-section" style="border-color: #a855f7;">
+                <h3 style="color: #a855f7;">PRACTICE 3</h3>
+                <h2 style="margin-bottom: 32px;">디버그 로그 분석 자동화</h2>
+                <div class="prompt-box" style="max-width: 800px; margin: 0 auto;">
+                    <div class="prompt-label">실제 업무 시나리오</div>
+                    <div class="prompt-text">
+                        "SSD FW 디버그 로그 분석을 도와줘<br><br>
+                        [로그 패턴]<br>
+                        - GC 관련: "[GC] blk=XXX, valid=YYY, erase_cnt=ZZZ"<br>
+                        - 에러: "[ERR] cmd=XXX, lba=YYY, status=ZZZ"<br><br>
+                        [분석 요청]<br>
+                        1. GC 빈도가 급증하는 시점 찾기<br>
+                        2. 특정 LBA 범위에서 에러 패턴 분석<br>
+                        3. 잠재적 원인 리스트업<br><br>
+                        Python 스크립트로 작성해줘"
+                    </div>
                 </div>
+                <p class="mt-32">
+                    본인 업무의 실제 로그 포맷을 적용해 보세요.<br>
+                    AI가 도메인 지식을 얼마나 활용하는지 관찰.
+                </p>
             </div>
-            <p class="mt-24">
-                본인 업무의 실제 로그 포맷을 적용해 보세요. AI가 도메인 지식을 얼마나 활용하는지 관찰.
-            </p>
         </div>
     </div>
 
     <!-- Slide 15: Think 2 -->
     <div class="slide" id="slide15">
-        <div class="think-section">
-            <h3>THINK</h3>
-            <h2 style="margin-bottom: 28px;">PoC 결과 정리</h2>
-            <div class="three-col" style="gap: 24px;">
-                <div class="card" style="background: var(--bg-primary);">
-                    <div class="card-header">효용성이 확인된 영역</div>
-                    <div class="card-body">
-                        실습을 통해 실제로 도움이 된 작업은?<br>
-                        시간이 절약된 부분은?<br>
-                        부담이 줄었던 경험은?
+        <div class="slide-content">
+            <div class="think-section">
+                <h3>THINK</h3>
+                <h2 style="margin-bottom: 32px;">PoC 결과 정리</h2>
+                <div class="three-col" style="gap: 24px;">
+                    <div class="card" style="background: var(--bg-tertiary);">
+                        <div class="card-header">효용성이 확인된 영역</div>
+                        <div class="card-body">
+                            실습을 통해 실제로 도움이 된 작업은?<br>
+                            시간이 절약된 부분은?<br>
+                            부담이 줄었던 경험은?
+                        </div>
+                    </div>
+                    <div class="card" style="background: var(--bg-tertiary);">
+                        <div class="card-header">한계를 느낀 영역</div>
+                        <div class="card-body">
+                            AI가 제대로 이해 못한 부분은?<br>
+                            오히려 시간이 더 든 경우는?<br>
+                            검증에 부담이 컸던 경우는?
+                        </div>
+                    </div>
+                    <div class="card" style="background: var(--bg-tertiary);">
+                        <div class="card-header">확장 도입 시 고려사항</div>
+                        <div class="card-body">
+                            보안 이슈는 어떻게 해소?<br>
+                            팀에 전파할 때 필요한 것은?<br>
+                            가이드라인이 필요한 부분은?
+                        </div>
                     </div>
                 </div>
-                <div class="card" style="background: var(--bg-primary);">
-                    <div class="card-header">한계를 느낀 영역</div>
-                    <div class="card-body">
-                        AI가 제대로 이해 못한 부분은?<br>
-                        오히려 시간이 더 든 경우는?<br>
-                        검증에 부담이 컸던 경우는?
-                    </div>
-                </div>
-                <div class="card" style="background: var(--bg-primary);">
-                    <div class="card-header">확장 도입 시 고려사항</div>
-                    <div class="card-body">
-                        보안 이슈는 어떻게 해소?<br>
-                        팀에 전파할 때 필요한 것은?<br>
-                        가이드라인이 필요한 부분은?
-                    </div>
-                </div>
+                <p class="mt-32" style="font-size: 1.15rem;">
+                    15분간 각자 정리 후 팀 토론.<br>
+                    이 결과가 PoC 보고서의 근거가 됩니다.
+                </p>
             </div>
-            <p class="mt-32" style="font-size: 1.1rem;">
-                15분간 각자 정리 후 팀 토론. 이 결과가 PoC 보고서의 근거가 됩니다.
-            </p>
         </div>
     </div>
 
     <!-- Slide 16: Closing -->
     <div class="slide" id="slide16">
-        <h3>마무리</h3>
-        <h1>여러분의 경험이<br><span class="accent">조직의 다음 단계</span>를 결정합니다</h1>
-        <p class="large-text mt-32" style="max-width: 800px;">
-            이 PoC는 "AI를 도입해야 한다"를 증명하는 게 아니라<br>
-            <span class="accent">"어디서, 어떻게 효용이 있는가"</span>를 발견하는 과정입니다.
-        </p>
-        <div class="flow mt-48">
-            <div class="flow-item">맥락 설계</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-item">AI 생성</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-item">검증</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-item">Rule 추가</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-item active">효용성 기록</div>
-        </div>
-        <div class="quote mt-48">
-            AI를 사용하는 개발자가 그렇지 않은 개발자를 앞서가는 게 아니라,<br>
-            <span class="accent">AI로 본질적인 문제에 집중하는 개발자</span>가 가치를 만든다.
+        <div class="slide-content">
+            <h3>마무리</h3>
+            <h1>여러분의 경험이<br><span class="accent">조직의 다음 단계</span>를 결정합니다</h1>
+            <p class="large-text mt-32">
+                이 PoC는 "AI를 도입해야 한다"를 증명하는 게 아니라<br>
+                <span class="accent">"어디서, 어떻게 효용이 있는가"</span>를 발견하는 과정입니다.
+            </p>
+            <div class="flow mt-48">
+                <div class="flow-item">맥락 설계</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">AI 생성</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">검증</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">가이드 추가</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item active">효용성 기록</div>
+            </div>
+            <div class="box mt-48" style="max-width: 800px; margin-left:auto; margin-right:auto;">
+                <p style="font-size: 1.15rem; margin: 0;">
+                    AI를 사용하는 개발자가 앞서가는 게 아니라,<br>
+                    <span class="accent">AI로 본질적인 문제에 집중하는 개발자</span>가 가치를 만든다.
+                </p>
+            </div>
         </div>
     </div>
 
